@@ -4,11 +4,14 @@ general:
       - gh-pages
   artifacts:
     - "artifacts/"
+machine:
+  node:
+    version: v6
+#checkout:
+#  post:
+#    - umask 0022
 dependencies:
   override:
-    - nvm install 6
-    - nvm use 6 && nvm alias default 6
-    - which node
     # TODO test yarn with node_modules installed via npm2, npm3 and latest stable yarn
     - npm install
     - go get github.com/tcnksm/ghr
